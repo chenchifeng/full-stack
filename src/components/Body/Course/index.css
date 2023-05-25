@@ -1,0 +1,19 @@
+.header-tags {
+  display: flex;
+  margin: 20px 0;
+}
+.header-tags .item {
+  margin-right: 20px;
+  padding: 4px 16px;
+  font-size: 14px;
+  border-radius: 32px;
+  line-height: 1.5715;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.85);
+  border-color: #d9d9d9;
+}
+.header-tags .item-focus {
+  border-color: #40a9ff;
+  color: #40a9ff;
+}

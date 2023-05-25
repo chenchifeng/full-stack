@@ -1,5 +1,6 @@
 import { Input } from 'antd';
 import './index.css';
+import Course from './Course';
 
 const { Search } = Input;
 
@@ -11,6 +12,7 @@ function Body() {
         allowClear
         style={{ width: 300 }}
       />
+      <Course />
     </div>
   );
 }
