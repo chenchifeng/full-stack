@@ -1,11 +1,13 @@
-import React from "react";
-import "./App.css";
-import Counter from "./components/Counter";
+import React from 'react';
+import './App.css';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div>
-      <Counter></Counter>
+    <div className='App'>
+      <div className='header-click'>
+        <Header />
+      </div>
     </div>
   );
 }
