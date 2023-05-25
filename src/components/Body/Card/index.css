@@ -1,0 +1,78 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 466px;
+  height: 168px;
+}
+
+.background {
+  width: 127px;
+  height: 168px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.content {
+  width: calc(100% - 147px);
+}
+
+.title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #404040;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.author {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #404040;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 5px;
+  line-height: 17px;
+  font-weight: 300;
+  font-size: 14px;
+}
+.people {
+  color: #888;
+  line-height: 36px;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.aciton-right {
+  text-align: right;
+}
+.price {
+  display: flex;
+  align-items: flex-end;
+  .promotion {
+    font-size: 18px;
+    color: #1890ff;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .origin {
+    margin-left: 5px;
+    color: #888;
+    font-size: 13px;
+    font-weight: 300;
+    text-decoration: line-through;
+    line-height: 1;
+  }
+}
+.return {
+  height: 32px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #1890ff;
+}
+.button {
+  margin-right: 0;
+}

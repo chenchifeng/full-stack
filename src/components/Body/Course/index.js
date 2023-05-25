@@ -1,5 +1,6 @@
 import "./index.css";
 import { useState } from "react";
+import Card from "../Card";
 
 const list = ["最新", "最热", "活动"];
 function Course() {
@@ -7,7 +8,7 @@ function Course() {
   const handleClick = async (index) => {
     setFocusIndex(index);
   };
-  
+
   return (
     <div>
       <div className="header-tags">
@@ -22,6 +23,7 @@ function Course() {
           </div>
         ))}
       </div>
+      <Card />
     </div>
   );
 }
