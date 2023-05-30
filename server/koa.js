@@ -1,15 +1,35 @@
-const koa = require("koa");
-const router = require("koa-router")();
+const koa = require('koa');
+const router = require('koa-router')();
 const app = new koa();
+const Query = require('./queryLocal');
 
-router.post("/api/query", async (ctx, next) => {
+router.get('/api/query', async (ctx, next) => {
   const defaultBody = {
     data: [],
     code: 0,
-    msg: "成功",
+    msg: '成功',
   };
+  const type = isNaN(Number(ctx.query.type))
+    ? undefined
+    : Number(ctx.query.type);
+  const courseList = await Query.query(type);
   ctx.body = {
     ...defaultBody,
+    data: courseList,
+  };
+});
+
+router.get('/api/search', async (ctx, next) => {
+  const defaultBody = {
+    data: [],
+    code: 0,
+    msg: '成功',
+  };
+  const title = ctx.query.title;
+  const courseList = await Query.search(title);
+  ctx.body = {
+    ...defaultBody,
+    data: courseList,
   };
 });
 
