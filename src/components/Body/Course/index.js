@@ -1,5 +1,6 @@
 import './index.css';
 import Card from '../Card';
+import { Spin } from 'antd';
 import { useState, useEffect } from 'react';
 import { queryCourse, searchCourse } from '../../../api';
 
@@ -11,6 +12,7 @@ function Course({ searchKey }) {
   // 响应式变量,相当于vue的data
   const [focusIndex, setFocusIndex] = useState(0);
   const [courseList, setCourseList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   // 类型点击事件
   const handleClick = async (index) => {
@@ -20,7 +22,9 @@ function Course({ searchKey }) {
 
   // 刷新数据
   const refreshData = async (type = 1) => {
+    setIsLoading(true);
     const res = await queryCourse({ type });
+    setIsLoading(false);
     const allCourses = res.data;
     setCourseList(allCourses.slice(0, 10));
   };
@@ -28,7 +32,9 @@ function Course({ searchKey }) {
   // 搜索数据
   const searchData = async (title) => {
     if (!title) return;
+    setIsLoading(true);
     const res = await searchCourse({ title });
+    setIsLoading(false);
     const allCourses = res.data;
     setCourseList(allCourses.slice(0, 10));
   };
@@ -68,12 +74,14 @@ function Course({ searchKey }) {
             </div>
           ))}
       </div>
-      <div className='courses'>
-        {/* 列表渲染课程数据 */}
-        {courseList.map((item) => (
-          <Card className='card' key={item.title} course={item} />
-        ))}
-      </div>
+      <Spin spinning={isLoading}>
+        <div className='courses'>
+          {/* 列表渲染课程数据 */}
+          {courseList.map((item) => (
+            <Card className='card' key={item.title} course={item} />
+          ))}
+        </div>
+      </Spin>
     </div>
   );
 }
