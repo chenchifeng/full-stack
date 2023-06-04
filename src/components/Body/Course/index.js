@@ -74,7 +74,7 @@ function Course({ searchKey }) {
   // 实现触底加载更多
   useEffect(() => {
     // 定义变量保存loaderRef.current,避免在清理副作用的时候受到oaderRef.current变化的影响
-    const loaderRefCurrent = loaderRef.current
+    const loaderRefCurrent = loaderRef.current;
     // IntersectionObserver 是一个浏览器原生的 API，可以用于观察元素是否进入或离开视口。
     // 在这段代码中，它的配置选项 rootMargin 设置为 '0px 0px 100% 0px'
     // 意味着当 loaderRef.current 元素进入视口底部 100% 的时候，就会触发回调函数 moreData()。
@@ -96,7 +96,7 @@ function Course({ searchKey }) {
         observer.unobserve(loaderRefCurrent);
       }
     };
-  }, []); // 只要 loaderRef.current 发生变化，就需要重新创建一个 IntersectionObserver 对象并进行监听
+  }, []); // 这里不应该把loaderRef.current作为依赖项,如果将 useRef 钩子与跳过渲染的 useEffect 结合使用,则它可能成为自定义钩子的陷阱。
 
   /**
    * 加载更多数据
