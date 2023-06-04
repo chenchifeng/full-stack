@@ -48,10 +48,12 @@ function Course() {
           </div>
         ))}
       </div>
-      {/* 列表渲染课程数据 */}
-      {courseList.map((item) => (
-        <Card className='card' key={item.title} course={item} />
-      ))}
+      <div className='courses'>
+        {/* 列表渲染课程数据 */}
+        {courseList.map((item) => (
+          <Card className='card' key={item.title} course={item} />
+        ))}
+      </div>
     </div>
   );
 }
